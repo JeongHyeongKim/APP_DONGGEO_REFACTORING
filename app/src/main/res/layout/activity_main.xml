@@ -107,6 +107,7 @@
                 android:layout_marginRight="200dp"
                 app:srcCompat="@drawable/north_korea" />
 
+
             <TextView
                 android:id="@+id/country1"
                 android:layout_marginLeft="-200dp"
