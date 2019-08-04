@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     int images[] = {R.drawable.make, R.drawable.south_korea, R.drawable.north_korea, R.drawable.vietnam, R.drawable.united_kingdom};
     MyCustomPagerAdapter myCustomPagerAdapter;
-    int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 500;
     final long PERIOD_MS = 3000;
@@ -69,10 +68,7 @@ public class MainActivity extends AppCompatActivity {
         final Runnable Update = new Runnable() {
             @Override
             public void run() {
-                if(currentPage == images.length - 1){
-                    currentPage = 0;
-                }
-                viewPager.setCurrentItem(currentPage++, true);
+                viewPager.setCurrentItem((viewPager.getCurrentItem()  + 1) % myCustomPagerAdapter.getCount(), false);
             }
         };
 
