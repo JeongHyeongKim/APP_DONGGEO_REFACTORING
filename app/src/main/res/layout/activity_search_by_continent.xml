@@ -193,7 +193,8 @@
         </LinearLayout>-->
     </LinearLayout>
 
-    <android.support.design.widget.BottomNavigationView
+    <include layout="@layout/app_bar"/>
+    <!-- <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -205,6 +206,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation" />-->
 
 </LinearLayout>

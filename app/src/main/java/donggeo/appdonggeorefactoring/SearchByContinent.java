@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioGroup;
@@ -18,6 +19,7 @@ import donggeo.appdonggeorefactoring.HttpRequest.GetData;
 public class SearchByContinent extends AppCompatActivity {
 
     public static Context context;
+    BottomNavigationView navigation;
     String conti_num = "0";
     String result = "";
     public JSONArray jsonArray;
@@ -28,24 +30,32 @@ public class SearchByContinent extends AppCompatActivity {
         Intent intent;
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            item.setChecked(true);
+            navigation.getMenu().findItem(navigation.getSelectedItemId());
+
             switch (item.getItemId()) {
                 case R.id.navigation_main:
                     intent = new Intent(SearchByContinent.this, MainActivity.class);
                     startActivity(intent);
+                    finish();
                     return true;
                 case R.id.navigation_search:
                     intent = new Intent(SearchByContinent.this, SearchByContinent.class);
                     startActivity(intent);
+                    finish();
                     return true;
                 case R.id.navigation_write:
                     intent = new Intent(SearchByContinent.this, WritePostActivity.class);
                     startActivity(intent);
+                    finish();
                     return true;
                 case R.id.navigation_mypage:
                     return true;
             }
             return false;
         }
+
     };
 
     @Override
@@ -53,7 +63,8 @@ public class SearchByContinent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_continent);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_search);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
     }
