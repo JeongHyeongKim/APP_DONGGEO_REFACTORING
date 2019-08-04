@@ -25,14 +25,14 @@ public class WritePostActivity extends AppCompatActivity {
 
     String[] exchangeRate = {
             "유럽연합 EUR", "독일 EUR", "프랑스 EUR", "이탈리아 EUR", "스페인 EUR", "포르투갈 EUR", "그리스 EUR", "네덜란드 EUR", "오스트리아 EUR", "벨기에 EUR", "아일랜드 EUR", "슬로바키아 EUR", "리투아니아 EUR", "핀란드 EUR", //유럽 코드 1
-            "영국 GBP", "스위스 CHF", "스웨덴 SEK", "체코 CZK", "덴마크 DKK", "노르웨이 NOK", "러시아 RUB", "폴란드 PLN", //유럽 코드 1
-            "일본 JPY", "중국 CNY", "홍콩 HKD", "대만 TWD", "몽골 MNT", "카자흐스탄 KZT", "인도 INR", "파키스탄 PKR", // 동아시아 코드 2
-            "태국 THB", "싱가포르 SGD", "말레이시아 MYR", "인도네시아 IDR", "브루나이 BND", "베트남 VND",// 동남 아시아 코드 3
+            "영국 GBP", "스위스 CHF", "스웨덴 SEK", "체코 CZK", "덴마크 DKK", "노르웨이 NOK", "러시아 RUB", "폴란드 PLN", "헝가리 HUF", //유럽 코드 1
+            "일본 JPY", "중국 CNY", "홍콩 HKD", "마카오 MOP", "대만 TWD", "몽골 MNT", "카자흐스탄 KZT", "인도 INR", "파키스탄 PKR", // 동아시아 코드 2
+            "태국 THB", "싱가포르 SGD", "말레이시아 MYR", "인도네시아 IDR", "브루나이 BND", "베트남 VND", "필리핀 PHP", // 동남 아시아 코드 3
             "오만 OMR", "터키 TRY", "이스라엘 ILS", "사우디아라비아 SAR", "쿠웨이트 KWD", "바레 BHD", "아랍에미리트 AED", "요르단 JOD", "카타르 QAR", //중동 코드 4
             "호주 AUD", "뉴질랜드 NZD", //오세아니아 코드 5
-            "캐나다 CAD", "미국 USD", //북아메리카 코드 6
-            "칠레 CLP", "브라질 BRL",  // 남아메리카 코드 7
-            "이집트 EGP", "남아공 ZAR", // 아프리카 코드 8
+            "캐나다 CAD", "미국 USD", "쿠바 CUP", "멕시코 MXN", //북아메리카 코드 6
+            "칠레 CLP", "브라질 BRL", "아르헨티나 ARS", "볼리비아 BOB", // 남아메리카 코드 7
+            "이집트 EGP", "남아공 ZAR", "자메이카 JMD" // 아프리카 코드 8
     };
 
     String[] school_item = { "가톨릭대학교", "감리교신학대학교", "건국대학교", "경희대학교", "고려대학교", "광운대학교", "국민대학교",
@@ -121,21 +121,21 @@ public class WritePostActivity extends AppCompatActivity {
 
     private int checkState(String exchange) {
 
-        if( exchange.equals("유럽연합 EUR") ||  exchange.equals("영국 GBP") ||  exchange.equals("스위스 CHF") ||  exchange.equals("스웨덴 SEK") ||  exchange.equals("체코 CZK") ||  exchange.equals("덴마크 DKK") ||  exchange.equals("노르웨이 NOK") ||  exchange.equals("러시아 RUB") ||  exchange.equals("폴란드 PLN") )
+        if( exchange.equals("유럽연합 EUR") ||  exchange.equals("영국 GBP") ||  exchange.equals("스위스 CHF") ||  exchange.equals("스웨덴 SEK") ||  exchange.equals("체코 CZK") ||  exchange.equals("덴마크 DKK") ||  exchange.equals("노르웨이 NOK") ||  exchange.equals("러시아 RUB") ||  exchange.equals("폴란드 PLN") || exchange.equals("헝가리 HUF"))
             return  1;//유럽 코드 1
-        else if( exchange.equals("일본 JPY") ||  exchange.equals("중국 CNY") ||  exchange.equals("홍콩 HKD") ||  exchange.equals("대만 TWD") ||   exchange.equals("몽골 MNT") ||  exchange.equals("카자흐스탄 KZT") ||  exchange.equals("인도 INR") ||  exchange.equals("파키스탄 PKR"))
+        else if( exchange.equals("일본 JPY") ||  exchange.equals("중국 CNY") ||  exchange.equals("홍콩 HKD") ||  exchange.equals("마카오 MOP") || exchange.equals("대만 TWD") ||   exchange.equals("몽골 MNT") ||  exchange.equals("카자흐스탄 KZT") ||  exchange.equals("인도 INR") ||  exchange.equals("파키스탄 PKR"))
             return  2; // 북아시아 코드 2
-        else if( exchange.equals("태국 THB") ||  exchange.equals("싱가포르 SGD") ||  exchange.equals("말레이시아 MYR") ||  exchange.equals("인도네시아 IDR") ||   exchange.equals("브루나이 BND") ||  exchange.equals("베트남 VND"))
+        else if( exchange.equals("태국 THB") ||  exchange.equals("싱가포르 SGD") ||  exchange.equals("말레이시아 MYR") ||  exchange.equals("인도네시아 IDR") ||   exchange.equals("브루나이 BND") ||  exchange.equals("베트남 VND") || exchange.equals("필리핀 PHP"))
             return  3;// 동남 아시아 코드 3
         else if( exchange.equals("오만 OMR") ||  exchange.equals("터키 TRY") ||  exchange.equals("이스라엘 ILS") ||  exchange.equals("사우디아라비아 SAR") ||  exchange.equals("쿠웨이트 KWD") ||  exchange.equals("바레 BHD") ||   exchange.equals("아랍에미리트 AED") ||  exchange.equals("요르단 JOD") ||  exchange.equals( "카타르 QAR"))
             return 4;//중동 코드 4
         else if ( exchange.equals("호주 AUD") ||  exchange.equals("뉴질랜드 NZD"))
             return 5;//오세아니아 코드 5
-        else if (  exchange.equals("캐나다 CAD") ||  exchange.equals("미국 USD"))
+        else if (  exchange.equals("캐나다 CAD") ||  exchange.equals("미국 USD") || exchange.equals("쿠바 CUP") || exchange.equals("멕시코 MXN"))
             return 6;//북아메리카 코드 6
-        else if( exchange.equals("칠레 CLP") ||  exchange.equals("브라질 BRL"))
+        else if( exchange.equals("칠레 CLP") ||  exchange.equals("브라질 BRL") || exchange.equals("아르헨티나 ARS") || exchange.equals("볼리비아 BOB"))
             return 7;// 남아메리카 코드 7
-        else if(  exchange.equals("이집트 EGP") ||  exchange.equals("남아공 ZAR"))
+        else if(  exchange.equals("이집트 EGP") ||  exchange.equals("남아공 ZAR") || exchange.equals("자메이카 JMD"))
             return 8;// 아프리카 코드 8
         else
             return 0;
