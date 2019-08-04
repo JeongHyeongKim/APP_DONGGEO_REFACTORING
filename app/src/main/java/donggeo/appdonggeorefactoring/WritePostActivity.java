@@ -1,9 +1,13 @@
 package donggeo.appdonggeorefactoring;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -17,6 +21,7 @@ import org.json.JSONObject;
 public class WritePostActivity extends AppCompatActivity {
 
     private static Context context;
+    BottomNavigationView navigation;
 
     String[] exchangeRate = {
             "유럽연합 EUR", "독일 EUR", "프랑스 EUR", "이탈리아 EUR", "스페인 EUR", "포르투갈 EUR", "그리스 EUR", "네덜란드 EUR", "오스트리아 EUR", "벨기에 EUR", "아일랜드 EUR", "슬로바키아 EUR", "리투아니아 EUR", "핀란드 EUR", //유럽 코드 1
@@ -41,11 +46,47 @@ public class WritePostActivity extends AppCompatActivity {
     EditText schoolInput;
     InputMethodManager im;
 
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        Intent intent;
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            item.setChecked(true);
+            navigation.getMenu().findItem(navigation.getSelectedItemId());
+
+            switch (item.getItemId()) {
+                case R.id.navigation_main:
+                    intent = new Intent(WritePostActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                    return true;
+                case R.id.navigation_search:
+                    intent = new Intent(WritePostActivity.this, SearchByContinent.class);
+                    startActivity(intent);
+                    finish();
+                    return true;
+                case R.id.navigation_write:
+                    intent = new Intent(WritePostActivity.this, WritePostActivity.class);
+                    startActivity(intent);
+                    finish();
+                    return true;
+                case R.id.navigation_mypage:
+                    item.setChecked(true);
+                    return true;
+            }
+            return false;
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_post);
 
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setSelectedItemId(R.id.navigation_write);
         exchangeInput = (EditText)findViewById(R.id.exchangeInput);
         priceInput = (EditText)findViewById(R.id.priceInput);
         schoolInput = (EditText)findViewById(R.id.schoolInput);

@@ -165,18 +165,19 @@
             android:text="등록하기" />
     </LinearLayout>
 
-    <android.support.design.widget.BottomNavigationView
+    <include layout="@layout/app_bar"/>
+    <!-- <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="#e8f8fc"
+        android:focusableInTouchMode="true"
+        app:itemTextColor="#303F9F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:focusableInTouchMode="true"
-        app:itemTextColor="#303F9F"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation" />-->
 
 </LinearLayout>
